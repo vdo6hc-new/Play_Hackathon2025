@@ -45,7 +45,6 @@ class Map:
             return False
             
         # Retrieve road network data from the localization server
-        # Returns success status, linestring coordinates, and intersection points
         success_map_node, linestrings, intersections = self.client.get_road_information()
         
         # Store the raw map data as instance variables

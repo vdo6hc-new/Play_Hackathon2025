@@ -6,7 +6,7 @@ import math
 import networkx as nx
 import tkinter as tk
 import logging
-from Player_API.Car import Car
+from Player_API.Car import Car, DeliveryStatus
 from Player_API.Map import Map
 
 # Setup logging to file
@@ -51,7 +51,7 @@ def Update_Map_Packages(map_instance, car_1, car_2):
                         
                         CAR_1_PACKAGE = [pkg['id'] for pkg in sorted_for_car_1]
                         CAR_2_PACKAGE = [pkg['id'] for pkg in sorted_for_car_2]
-                        
+                        logging.info(PACKAGE_LIST)
                         car_1.update_package_list(CAR_1_PACKAGE)
                         car_2.update_package_list(CAR_2_PACKAGE)
                         if CAR_1_PACKAGE is not None and CAR_2_PACKAGE is not None:
@@ -73,21 +73,59 @@ def car_thread_function(map_instance, car, another_car):
     packages_ready_event.wait()
     time.sleep(car.cycle_time)  # Wait
     logging.info(f"Car {car.car_id} starting - packages are ready!")
-    car.get_target_package(another_car.target_package_id) 
-    
+    car.get_target_package(another_car.target_package_id)
+    car.old_position = car.position_mm
     while True:
         try:
             if car.target_package_id is not None:
                 if car.update_status() and car.control_command == 'STOP':
-                                      
-                    car.route = map_instance.get_root(car.position_mm, map_instance.map_packages[str(car.target_package_id)]['position_start']) if car.target_package_id else []
-                    logging.info(car.route)
-                    success = map_instance.client.update_car_route(car.car_id, car.route, userName, password, timeout=5.0)
-                    if success:
-                        logging.info(f"✓ Route update successful for Car {car.car_id} to pick up Package {car.target_package_id} with {car.route} !")
+                    # If car is idle or has delivered the package, get a new target package
+                    if car.delivery_status == DeliveryStatus.IDLE:
+                        # Plan route to pick up the target package
+                        car.route = map_instance.get_root(car.position_mm, map_instance.map_packages[str(car.target_package_id)]['position_start']) if car.target_package_id else []
+                        success   = map_instance.client.update_car_route(car.car_id, car.route, userName, password, timeout=5.0)
+
+                        # Update delivery status if route update was successful
+                        if success:
+                            car.delivery_status = DeliveryStatus.PICKING_UP
+                    
+                    # If car is picking up the package and has arrived at the pick-up location
+                    elif car.delivery_status == DeliveryStatus.PICKING_UP:
+                        if map_instance.map_packages[str(car.target_package_id)]['ownedBy'] == car.car_id:
+                            # Plan route to deliver the package
+                            car.route = map_instance.get_root(car.position_mm, map_instance.map_packages[str(car.target_package_id)]['position_end'])
+                            success = map_instance.client.update_car_route(car.car_id, car.route, userName, password, timeout=5.0)
+
+                            # Update delivery status if route update was successful
+                            if success:
+                                car.delivery_status = DeliveryStatus.DELIVERING
+                        else:
+                            # If the package is not owned by this car, reset target and status
+                            car.delivery_status = DeliveryStatus.IDLE
+                            car.get_target_package(another_car.target_package_id)
+                            logging.info(f"Car {car.car_id} lost ownership of package {car.target_package_id}, resetting target.")
+
+                    # If car is delivering the package and has arrived at the delivery location        
+                    elif car.delivery_status == DeliveryStatus.DELIVERING:
+                        if map_instance.map_packages[str(car.target_package_id)]['status'] == 2:
+                            # Package has been delivered
+                            car.delivery_status = DeliveryStatus.IDLE
+                            car.get_target_package(another_car.target_package_id)
+                    
+                    # Check if car is stuck
+                    if car.Im_Stuck(map_instance):
+                        logging.info(f"Car {car.car_id} seems to be stuck. Re-evaluating target package.")
+
+                    car.old_position = car.position_mm    
+    
                 else:
-                    logging.info(f"Car {car.car_id} status {car.control_command}")        
+                    if car.delivery_status == DeliveryStatus.PICKING_UP or car.delivery_status == DeliveryStatus.DELIVERING:
+                        if map_instance.map_packages[str(car.target_package_id)]['status'] == 1 or map_instance.map_packages[str(car.target_package_id)]['status'] == 2:
+                            # Package has been delivered
+                            car.delivery_status = DeliveryStatus.IDLE
+                            car.get_target_package(another_car.target_package_id)             
             else:
+                # Get next target package avoiding conflict with another car
                 car.get_target_package(another_car.target_package_id)            
 
         except Exception as e:

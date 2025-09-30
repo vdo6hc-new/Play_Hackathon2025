@@ -1,6 +1,9 @@
 import threading
 import time
 
+
+
+
 # Shared state
 shared_data = {"value1": None, "value2": None}
 lock = threading.Lock()

@@ -162,6 +162,7 @@ dmypy.json
 # Project specific
 hackathon_log.txt
 *.log
+try.py
 
 # IDE
 .vscode/
