@@ -2,12 +2,12 @@ import time
 import sys
 import os
 import numpy as np
-from indoor_localization.clientApi import LocalizationAPIClient
+from Player_API.indoor_localization.clientApi import LocalizationAPIClient
 import math
 import matplotlib.pyplot as plt
 import networkx as nx
-start = (805.0, 190.0)
-end = (805.0, 1885.0)
+start = (2064.95507812 , 187.07444763)
+end = (1654.0, 190.0)
 # Snap start/end to nearest nodes
 def nearest_node(point, nodes):
     return min(nodes, key=lambda n: math.dist(n, point))
