@@ -46,13 +46,14 @@ class Map:
             
         # Retrieve road network data from the localization server
         success_map_node, linestrings, intersections = self.client.get_road_information()
+        success_map_package                          = self.get_package()
         
         # Store the raw map data as instance variables
         self.linestrings   = linestrings    # Road segments with start/end coordinates
         self.intersections = intersections  # Junction/intersection points
         
         # Process the map data if retrieval was successful
-        if success_map_node:
+        if success_map_node and success_map_package:
             # Initialize a new undirected graph using NetworkX
             self.map_graph = nx.Graph()
             
@@ -94,7 +95,6 @@ class Map:
             try:
                 route = nx.shortest_path(self.map_graph, source=tuple(start_node), target=tuple(end_node), weight="weight")
                 if route[-1] != tuple(end):
-                    print("here")
                     route.append(tuple(end)) 
             except nx.NetworkXNoPath:
                 print("No path found between the specified points.")

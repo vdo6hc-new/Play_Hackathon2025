@@ -32,32 +32,33 @@ packages_ready_event = threading.Event()  # Event to signal when packages are re
 def Update_Map_Packages(map_instance, car_1, car_2):
     while True:
         try:
-            car_1.update_status()
-            car_2.update_status()
-            success = map_instance.get_package()
+            success_car1 = car_1.update_status()
+            success_car2 = car_2.update_status()
+            success_package = map_instance.get_package()
             
-            if success:
-                PACKAGE_LIST = map_instance.map_packages   
+            if success_car1 and success_car2 and success_package:
+                PACKAGE_LIST = map_instance.map_packages 
+                if PACKAGE_LIST is not None: 
                 # Sort packages by distance to car_1 and car_2
-                if car_1.position_mm is not None and car_2.position_mm is not None:
-                    # Check if positions are valid iterables (lists/tuples with 2+ elements)
-                    if (hasattr(car_1.position_mm, '__len__') and len(car_1.position_mm) >= 2 and
-                        hasattr(car_2.position_mm, '__len__') and len(car_2.position_mm) >= 2):
-                        
-                        sorted_for_car_1 = sorted((pkg for pkg in PACKAGE_LIST.values() if pkg['status'] == 0),
-                                                key=lambda pkg: math.dist(car_1.position_mm, pkg['position_start']))
-                        sorted_for_car_2 = sorted((pkg for pkg in PACKAGE_LIST.values() if pkg['status'] == 0),
-                                                key=lambda pkg: math.dist(car_2.position_mm, pkg['position_start']))
-                        
-                        CAR_1_PACKAGE = [pkg['id'] for pkg in sorted_for_car_1]
-                        CAR_2_PACKAGE = [pkg['id'] for pkg in sorted_for_car_2]
-                        logging.info(PACKAGE_LIST)
-                        car_1.update_package_list(CAR_1_PACKAGE)
-                        car_2.update_package_list(CAR_2_PACKAGE)
-                        if CAR_1_PACKAGE is not None and CAR_2_PACKAGE is not None:
-                            packages_ready_event.set()  # Signal that packages are ready
-                    else:
-                        logging.info("Car positions are not valid coordinate pairs...")
+                    if car_1.position_mm is not None and car_2.position_mm is not None:
+                        # Check if positions are valid iterables (lists/tuples with 2+ elements)
+                        if (hasattr(car_1.position_mm, '__len__') and len(car_1.position_mm) >= 2 and
+                            hasattr(car_2.position_mm, '__len__') and len(car_2.position_mm) >= 2):
+
+                            sorted_for_car_1 = sorted((pkg for pkg in PACKAGE_LIST.values() if pkg['status'] == 0),
+                                                    key=lambda pkg: math.dist(car_1.position_mm, pkg['position_start']))
+                            sorted_for_car_2 = sorted((pkg for pkg in PACKAGE_LIST.values() if pkg['status'] == 0),
+                                                    key=lambda pkg: math.dist(car_2.position_mm, pkg['position_start']))
+
+                            CAR_1_PACKAGE = [pkg['id'] for pkg in sorted_for_car_1]
+                            CAR_2_PACKAGE = [pkg['id'] for pkg in sorted_for_car_2]
+                            # logging.info(PACKAGE_LIST)
+                            car_1.update_package_list(CAR_1_PACKAGE)
+                            car_2.update_package_list(CAR_2_PACKAGE)
+                            if CAR_1_PACKAGE is not None and CAR_2_PACKAGE is not None:
+                                packages_ready_event.set()  # Signal that packages are ready
+                        else:
+                            logging.info("Car positions are not valid coordinate pairs...")
                 else:
                     logging.info("Waiting for both cars to have valid positions...")
             else:
@@ -91,7 +92,8 @@ def car_thread_function(map_instance, car, another_car):
                     
                     # If car is picking up the package and has arrived at the pick-up location
                     elif car.delivery_status == DeliveryStatus.PICKING_UP:
-                        if map_instance.map_packages[str(car.target_package_id)]['ownedBy'] == car.car_id:
+                        # print(map_instance.map_packages[str(car.target_package_id)]['ownedBy'])
+                        if int(map_instance.map_packages[str(car.target_package_id)]['ownedBy']) == car.car_id:
                             # Plan route to deliver the package
                             car.route = map_instance.get_root(car.position_mm, map_instance.map_packages[str(car.target_package_id)]['position_end'])
                             success = map_instance.client.update_car_route(car.car_id, car.route, userName, password, timeout=5.0)
@@ -107,7 +109,9 @@ def car_thread_function(map_instance, car, another_car):
 
                     # If car is delivering the package and has arrived at the delivery location        
                     elif car.delivery_status == DeliveryStatus.DELIVERING:
-                        if map_instance.map_packages[str(car.target_package_id)]['status'] == 2:
+                        PACKAGE_STATUS = int(map_instance.map_packages[str(car.target_package_id)]['status'])
+                        print(PACKAGE_STATUS)
+                        if PACKAGE_STATUS == 2:
                             # Package has been delivered
                             car.delivery_status = DeliveryStatus.IDLE
                             car.get_target_package(another_car.target_package_id)
@@ -116,14 +120,16 @@ def car_thread_function(map_instance, car, another_car):
                     if car.Im_Stuck(map_instance):
                         logging.info(f"Car {car.car_id} seems to be stuck. Re-evaluating target package.")
 
-                    car.old_position = car.position_mm    
+                    # car.old_position = car.position_mm    
     
                 else:
                     if car.delivery_status == DeliveryStatus.PICKING_UP or car.delivery_status == DeliveryStatus.DELIVERING:
-                        if map_instance.map_packages[str(car.target_package_id)]['status'] == 1 or map_instance.map_packages[str(car.target_package_id)]['status'] == 2:
+                        if ((map_instance.map_packages[str(car.target_package_id)]['status'] == 1 or 
+                             map_instance.map_packages[str(car.target_package_id)]['status'] == 2) and 
+                             int(map_instance.map_packages[str(car.target_package_id)]['ownedBy']) != car.car_id):
                             # Package has been delivered
                             car.delivery_status = DeliveryStatus.IDLE
-                            car.get_target_package(another_car.target_package_id)             
+                            car.get_target_package(another_car.target_package_id)         
             else:
                 # Get next target package avoiding conflict with another car
                 car.get_target_package(another_car.target_package_id)            

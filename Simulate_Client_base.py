@@ -23,9 +23,9 @@ Usage:
 def setup_config():
     """Step 1: Set car IDs, user, password."""
     global CAR_IDS, USER, PASSWORD
-    CAR_IDS = [10, 11]
-    USER = "TeamA"
-    PASSWORD = "123456789"
+    CAR_IDS = [12, 13]
+    USER = "TeamB"
+    PASSWORD = "987654321"
 
 # ===================== 2. GLOBAL STATE =====================
 def setup_global_state():
@@ -240,7 +240,7 @@ def calculate_and_send_route(car_id, car_state, graph, valid_points, destination
 def run_main_loop():
     """Step 4: Main control loop for car delivery."""
     print("=== Localization API Client Simulation ===")
-    client = LocalizationAPIClient(server_host='10.185.74.124', server_port=8080)
+    client = LocalizationAPIClient(server_host='localhost', server_port=8080)
     print("Attempting to connect to the localization server...")
     if not client.connect():
         print("Failed to connect to the server. Make sure the server is running.")
