@@ -1,13 +1,22 @@
+from enum import Enum
+class DeliveryStatus(Enum):
+    IDLE        = "idle"
+    PICKING_UP  = "picking_up"
+    IN_TRANSIT  = "in_transit"
+    DELIVERING  = "delivering"
+    DELIVERED   = "delivered"
+    FAILED      = "failed"
 class Car:
     def __init__(self, car_id, client):
-        self.car_id = car_id
-        self.client = client
-        self.status = None
-        self.target_package_id = None
-        self.control_command = None
-        self.position = None
-        self.package_list = []
-        self.route = []
+        self.car_id             = car_id
+        self.client             = client
+        self.status             = None
+        self.target_package_id  = None
+        self.control_command    = None
+        self.position           = None
+        self.delivery_status    = None
+        self.package_list       = []
+        self.route              = []
         self.cycle_time = 0.5 if (car_id == 10 or car_id == 12) else 0.75  # Default cycle time based on car ID
         
     def update_package_list(self, sorted_packages):

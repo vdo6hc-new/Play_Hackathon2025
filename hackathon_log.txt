@@ -1,0 +1,61 @@
+2025-09-30 13:05:35,107 - Map loaded successfully!
+2025-09-30 13:05:35,108 - Graph has 28 nodes
+2025-09-30 13:05:35,108 - Graph has 43 edges
+2025-09-30 13:05:35,108 - Found 10 packages
+2025-09-30 13:05:35,109 - Car 10 waiting for packages to be ready...
+2025-09-30 13:05:35,109 - Car 11 waiting for packages to be ready...
+2025-09-30 13:05:35,113 - Error in Update_Map_Packages thread: 'Car' object has no attribute 'position_mm'
+2025-09-30 13:05:36,639 - Car 10 starting - packages are ready!
+2025-09-30 13:05:36,643 - [(200, 187), (800, 187), (805.0, 190.0)]
+2025-09-30 13:05:36,644 - \u2713 Route update successful for Car 10 to pick up Package 1 with [(200, 187), (800, 187), (805.0, 190.0)] !
+2025-09-30 13:05:36,891 - Car 11 starting - packages are ready!
+2025-09-30 13:05:36,895 - [(2248, 187), (1900, 187), (1654.0, 190.0)]
+2025-09-30 13:05:36,897 - \u2713 Route update successful for Car 11 to pick up Package 3 with [(2248, 187), (1900, 187), (1654.0, 190.0)] !
+2025-09-30 13:05:37,165 - Car 10 status TURN
+2025-09-30 13:05:37,650 - Car 11 status MOVE_FORWARD
+2025-09-30 13:05:37,684 - Car 10 status MOVE_FORWARD
+2025-09-30 13:05:38,189 - Car 10 status MOVE_FORWARD
+2025-09-30 13:05:38,423 - Car 11 status MOVE_FORWARD
+2025-09-30 13:05:38,698 - Car 10 status MOVE_FORWARD
+2025-09-30 13:05:39,184 - Car 11 status MOVE_FORWARD
+2025-09-30 13:05:39,187 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-09-30 13:05:39,215 - Car 10 status MOVE_FORWARD
+2025-09-30 13:05:39,735 - Car 10 status MOVE_FORWARD
+2025-09-30 13:05:39,937 - Car 11 status TURN
+2025-09-30 13:05:40,261 - Car 10 status MOVE_FORWARD
+2025-09-30 13:05:40,708 - Car 11 status MOVE_FORWARD
+2025-09-30 13:05:40,781 - Car 10 status MOVE_FORWARD
+2025-09-30 13:05:41,298 - Car 10 status MOVE_FORWARD
+2025-09-30 13:05:41,471 - Car 11 status MOVE_FORWARD
+2025-09-30 13:05:41,817 - [(800, 187), (805.0, 190.0)]
+2025-09-30 13:05:41,822 - \u2713 Route update successful for Car 10 to pick up Package 1 with [(800, 187), (805.0, 190.0)] !
+2025-09-30 13:05:42,242 - Car 11 status MOVE_FORWARD
+2025-09-30 13:05:42,244 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-09-30 13:05:42,335 - [(800, 187), (805.0, 190.0)]
+2025-09-30 13:05:42,339 - \u2713 Route update successful for Car 10 to pick up Package 1 with [(800, 187), (805.0, 190.0)] !
+2025-09-30 13:05:42,857 - [(800, 187), (805.0, 190.0)]
+2025-09-30 13:05:42,860 - \u2713 Route update successful for Car 10 to pick up Package 1 with [(800, 187), (805.0, 190.0)] !
+2025-09-30 13:05:42,997 - [(1900, 187), (1654.0, 190.0)]
+2025-09-30 13:05:43,000 - \u2713 Route update successful for Car 11 to pick up Package 3 with [(1900, 187), (1654.0, 190.0)] !
+2025-09-30 13:05:43,376 - [(800, 187), (805.0, 190.0)]
+2025-09-30 13:05:43,379 - \u2713 Route update successful for Car 10 to pick up Package 1 with [(800, 187), (805.0, 190.0)] !
+2025-09-30 13:05:43,756 - Car 11 status MOVE_FORWARD
+2025-09-30 13:05:43,897 - [(800, 187), (805.0, 190.0)]
+2025-09-30 13:05:43,899 - \u2713 Route update successful for Car 10 to pick up Package 1 with [(800, 187), (805.0, 190.0)] !
+2025-09-30 13:05:44,416 - [(800, 187), (805.0, 190.0)]
+2025-09-30 13:05:44,418 - \u2713 Route update successful for Car 10 to pick up Package 1 with [(800, 187), (805.0, 190.0)] !
+2025-09-30 13:05:44,512 - Car 11 status MOVE_FORWARD
+2025-09-30 13:05:44,923 - [(800, 187), (805.0, 190.0)]
+2025-09-30 13:05:44,925 - \u2713 Route update successful for Car 10 to pick up Package 1 with [(800, 187), (805.0, 190.0)] !
+2025-09-30 13:05:45,269 - Car 11 status MOVE_FORWARD
+2025-09-30 13:05:45,439 - [(800, 187), (805.0, 190.0)]
+2025-09-30 13:05:45,441 - \u2713 Route update successful for Car 10 to pick up Package 1 with [(800, 187), (805.0, 190.0)] !
+2025-09-30 13:05:45,948 - [(800, 187), (805.0, 190.0)]
+2025-09-30 13:05:45,951 - \u2713 Route update successful for Car 10 to pick up Package 1 with [(800, 187), (805.0, 190.0)] !
+2025-09-30 13:05:46,028 - Car 11 status MOVE_FORWARD
+2025-09-30 13:05:46,473 - [(800, 187), (805.0, 190.0)]
+2025-09-30 13:05:46,479 - \u2713 Route update successful for Car 10 to pick up Package 1 with [(800, 187), (805.0, 190.0)] !
+2025-09-30 13:05:46,790 - Car 11 status TURN
+2025-09-30 13:05:46,998 - [(800, 187), (805.0, 190.0)]
+2025-09-30 13:05:47,000 - \u2713 Route update successful for Car 10 to pick up Package 1 with [(800, 187), (805.0, 190.0)] !
+2025-09-30 13:05:47,193 - Stopping threads...

@@ -5,17 +5,8 @@ import threading
 import math
 import networkx as nx
 import tkinter as tk
-import logging
 from Player_API.Car import Car
 from Player_API.Map import Map
-
-# Setup logging to file
-logging.basicConfig(
-    filename='hackathon_log.txt',
-    level=logging.INFO,
-    format='%(asctime)s - %(message)s',
-    filemode='w'
-)
 
 ####################################
 # INPUT YOUR TEAM INFORMATION HERE #
@@ -57,43 +48,74 @@ def Update_Map_Packages(map_instance, car_1, car_2):
                         if CAR_1_PACKAGE is not None and CAR_2_PACKAGE is not None:
                             packages_ready_event.set()  # Signal that packages are ready
                     else:
-                        logging.info("Car positions are not valid coordinate pairs...")
+                        print("Car positions are not valid coordinate pairs...")
                 else:
-                    logging.info("Waiting for both cars to have valid positions...")
+                    print("Waiting for both cars to have valid positions...")
             else:
-                logging.info("Failed to update package list")
+                print("Failed to update package list")
         except Exception as e:
-            logging.error(f"Error in Update_Map_Packages thread: {e}")
+            print(f"Error in Update_Map_Packages thread: {e}")
         
         time.sleep(TASK_CYCLE)
 
 def car_thread_function(map_instance, car, another_car):
     # Wait for packages to be ready before starting
-    logging.info(f"Car {car.car_id} waiting for packages to be ready...")
+    print(f"Car {car.car_id} waiting for packages to be ready...")
     packages_ready_event.wait()
     time.sleep(car.cycle_time)  # Wait
-    logging.info(f"Car {car.car_id} starting - packages are ready!")
+    print(f"Car {car.car_id} starting - packages are ready!")
     car.get_target_package(another_car.target_package_id) 
     
     while True:
         try:
             if car.target_package_id is not None:
                 if car.update_status() and car.control_command == 'STOP':
-                                      
+                    print(f"Car {car.car_id} cycle time {car.cycle_time}s - Position: {car.position_mm}, Command: {car.control_command}, Target Package: {car.target_package_id}")
+                    print(f"Car {car.car_id} assigned packages: {car.package_list}")
+                    print(map_instance.map_packages[str(car.target_package_id)]['position_start'])
                     car.route = map_instance.get_root(car.position_mm, map_instance.map_packages[str(car.target_package_id)]['position_start']) if car.target_package_id else []
-                    logging.info(car.route)
                     success = map_instance.client.update_car_route(car.car_id, car.route, userName, password, timeout=5.0)
                     if success:
-                        logging.info(f"✓ Route update successful for Car {car.car_id} to pick up Package {car.target_package_id} with {car.route} !")
-                else:
-                    logging.info(f"Car {car.car_id} status {car.control_command}")        
+                        print(f"✓ Route update successful for Car {car.car_id} to pick up Package {car.target_package_id} with {car.route} !")
             else:
                 car.get_target_package(another_car.target_package_id)            
 
         except Exception as e:
-            logging.error(f"Error in car {car.car_id} thread: {e}")
+            print(f"Error in car {car.car_id} thread: {e}")
         
         time.sleep(car.cycle_time)  # Wait before next cycle
+
+
+class MapViewer(tk.Tk):
+    def __init__(self, map_graph):
+        super().__init__()
+        self.title("Map Graph Viewer")
+        self.geometry("900x700")
+
+        self.canvas = tk.Canvas(self, bg="white")
+        self.canvas.pack(fill="both", expand=True)
+
+        self.scale = 0.3  # shrink coordinates to fit canvas
+        self.draw_graph(map_graph)
+
+    def draw_graph(self, G):
+        # Draw edges
+        for u, v, data in G.edges(data=True):
+            x1, y1 = u[0] * self.scale, u[1] * self.scale
+            x2, y2 = v[0] * self.scale, v[1] * self.scale
+            self.canvas.create_line(x1, y1, x2, y2, fill="black", width=2)
+            # Label weight
+            mid_x, mid_y = (x1 + x2) / 2, (y1 + y2) / 2
+            weight = f"{data.get('weight', 0):.1f}"
+            self.canvas.create_text(mid_x, mid_y, text=weight, fill="gray")
+
+        # Draw nodes
+        for idx, (x, y) in enumerate(G.nodes()):
+            x_scaled, y_scaled = x * self.scale, y * self.scale
+            r = 5
+            self.canvas.create_oval(x_scaled-r, y_scaled-r, x_scaled+r, y_scaled+r, fill="red")
+            self.canvas.create_text(x_scaled+10, y_scaled, text=f"N{idx}", anchor="w", fill="blue")
+
 
 if __name__ == "__main__":
     
@@ -101,28 +123,29 @@ if __name__ == "__main__":
     map_instance = Map()
     # Load map information with error handling
     if map_instance.map_info() and map_instance.get_package():
-        logging.info("Map loaded successfully!")
-        logging.info(f"Graph has {len(map_instance.map_graph.nodes)} nodes")
-        logging.info(f"Graph has {len(map_instance.map_graph.edges)} edges")
-        logging.info(f"Found {len(map_instance.map_packages)} packages")
+        print("Map loaded successfully!")
+        print(f"Graph has {len(map_instance.map_graph.nodes)} nodes")
+        print(f"Graph has {len(map_instance.map_graph.edges)} edges")
+        print(f"Found {len(map_instance.map_packages)} packages")
     else:
-        logging.error("Failed to load map. Cannot proceed with navigation.")
+        print("Failed to load map. Cannot proceed with navigation.")
         exit(1)
-
+    app = MapViewer(map_instance.map_graph)
+    app.mainloop()
     # Create car instances    
     car_1 = Car(Car_1_ID, map_instance.client)
     car_2 = Car(Car_2_ID, map_instance.client)  
 
     # Create threads for each process
     package_thread   = threading.Thread(target=Update_Map_Packages, args=(map_instance,car_1,car_2), daemon=True)
-    car_1_thread     = threading.Thread(target=car_thread_function, args=(map_instance,car_1,car_2), daemon=True)
+    # car_1_thread     = threading.Thread(target=car_thread_function, args=(map_instance,car_1,car_2), daemon=True)
     car_2_thread     = threading.Thread(target=car_thread_function, args=(map_instance,car_2,car_1), daemon=True)
     
     # Start package thread first
     package_thread.start()
     
     # Start car threads (they will wait for packages to be ready)
-    car_1_thread.start()
+    # car_1_thread.start()
     car_2_thread.start()
     
     # Keep main thread alive to let daemon threads run
@@ -130,4 +153,4 @@ if __name__ == "__main__":
         while True:
             time.sleep(1)
     except KeyboardInterrupt:
-        logging.info("Stopping threads...")
+        print("Stopping threads...")

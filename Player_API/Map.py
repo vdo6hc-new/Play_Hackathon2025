@@ -39,45 +39,34 @@ class Map:
 
     def map_info(self):
         """Load map data from the server and create a graph representation"""
+        # Check if client connection is available
         if not self.client:
             print("No client connection available")
             return False
             
+        # Retrieve road network data from the localization server
+        # Returns success status, linestring coordinates, and intersection points
         success_map_node, linestrings, intersections = self.client.get_road_information()
-        success_package                              = self.get_package()
-        self.linestrings = linestrings
-        self.intersections = intersections
-
-        if success_map_node and success_package:
+        
+        # Store the raw map data as instance variables
+        self.linestrings   = linestrings    # Road segments with start/end coordinates
+        self.intersections = intersections  # Junction/intersection points
+        
+        # Process the map data if retrieval was successful
+        if success_map_node:
+            # Initialize a new undirected graph using NetworkX
             self.map_graph = nx.Graph()
             
-            # Add road network edges
+            # Build the road network graph by adding edges for each road segment
             for line in linestrings:
+                # Extract start and end coordinates as tuples
                 s, e = tuple(line["start"]), tuple(line["end"])
+                
+                # Calculate Euclidean distance between start and end points
                 dist = math.dist(s, e)
+                
+                # Add edge to graph with distance as weight for pathfinding
                 self.map_graph.add_edge(s, e, weight=dist)
-            
-            # Add package positions as nodes and connect them to nearest intersections
-            if self.map_packages and self.intersections:
-                for package_id, package_data in self.map_packages.items():
-                    # Get package positions
-                    start_pos = tuple(package_data['position_start'])
-                    end_pos = tuple(package_data['position_end'])
-                    
-                    # Add package positions as nodes
-                    self.map_graph.add_node(start_pos)
-                    self.map_graph.add_node(end_pos)
-                    
-                    # Connect package positions to nearest intersections
-                    nearest_start_intersection = min(self.intersections, key=lambda point: math.dist(start_pos, point))
-                    nearest_end_intersection   = min(self.intersections, key=lambda point: math.dist(end_pos, point))
-                    
-                    # Add edges from package positions to nearest intersections
-                    start_dist = math.dist(start_pos, nearest_start_intersection)
-                    end_dist = math.dist(end_pos, nearest_end_intersection)
-                    
-                    self.map_graph.add_edge(start_pos, tuple(nearest_start_intersection), weight=start_dist)
-                    self.map_graph.add_edge(end_pos, tuple(nearest_end_intersection), weight=end_dist)
             
             return True
         else:
@@ -105,8 +94,13 @@ class Map:
             end_node = min(self.intersections, key=lambda point: math.dist(end, point))
             try:
                 route = nx.shortest_path(self.map_graph, source=tuple(start_node), target=tuple(end_node), weight="weight")
+                if route[-1] != tuple(end):
+                    print("here")
+                    route.append(tuple(end)) 
             except nx.NetworkXNoPath:
                 print("No path found between the specified points.")
+            # Ensure end_node is at the end of the route
+   
         else:
             print("Map graph or intersections not available.")
         return route
