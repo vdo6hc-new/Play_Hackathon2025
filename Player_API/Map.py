@@ -4,8 +4,10 @@ import math
 import time
 
 class Map:
-    def __init__(self, server_host='localhost', server_port=8080):
+    def __init__(self, server_host='localhost', server_port=8080, userName="TeamA", password="123456789"):
         self.client = LocalizationAPIClient(server_host=server_host, server_port=server_port)
+        self.userName       = userName
+        self.password       = password        
         self.map_graph      = None
         self.map_packages   = None
         self.linestrings    = None
@@ -67,6 +69,58 @@ class Map:
                 
                 # Add edge to graph with distance as weight for pathfinding
                 self.map_graph.add_edge(s, e, weight=dist)
+            
+            # Add package positions and create new linestrings
+            if self.map_packages and self.linestrings:
+                # Get all existing nodes from linestrings
+                existing_nodes = set()
+                for line in self.linestrings:
+                    existing_nodes.add(tuple(line["start"]))
+                    existing_nodes.add(tuple(line["end"]))
+                
+                existing_nodes = list(existing_nodes)
+                
+                for package_id, package_data in self.map_packages.items():
+                    start_pos = tuple(package_data['position_start'])
+                    end_pos = tuple(package_data['position_end'])
+                    
+                    # Find 2 closest existing nodes for start position
+                    start_distances = [(node, math.dist(start_pos, node)) for node in existing_nodes]
+                    start_distances.sort(key=lambda x: x[1])
+                    closest_start_nodes = [start_distances[0][0], start_distances[1][0]]
+                    
+                    # Find 2 closest existing nodes for end position
+                    end_distances = [(node, math.dist(end_pos, node)) for node in existing_nodes]
+                    end_distances.sort(key=lambda x: x[1])
+                    closest_end_nodes = [end_distances[0][0], end_distances[1][0]]
+                    
+                    # Create 2 new linestrings for start position
+                    for i, closest_node in enumerate(closest_start_nodes):
+                        new_linestring_start = {
+                            "start": list(start_pos),
+                            "end": list(closest_node),
+                            "package_id": package_data['id'],
+                            "connection_type": f"start_connection_{i+1}"
+                        }
+                        self.linestrings.append(new_linestring_start)
+                        
+                        # Add to graph
+                        dist = math.dist(start_pos, closest_node)
+                        self.map_graph.add_edge(start_pos, closest_node, weight=dist)
+                    
+                    # Create 2 new linestrings for end position
+                    for i, closest_node in enumerate(closest_end_nodes):
+                        new_linestring_end = {
+                            "start": list(end_pos),
+                            "end": list(closest_node),
+                            "package_id": package_data['id'],
+                            "connection_type": f"end_connection_{i+1}"
+                        }
+                        self.linestrings.append(new_linestring_end)
+                        
+                        # Add to graph
+                        dist = math.dist(end_pos, closest_node)
+                        self.map_graph.add_edge(end_pos, closest_node, weight=dist)
             
             return True
         else:

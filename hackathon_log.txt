@@ -1,59 +1,443 @@
-2025-09-30 16:33:31,029 - Map loaded successfully!
-2025-09-30 16:33:31,029 - Graph has 28 nodes
-2025-09-30 16:33:31,029 - Graph has 43 edges
-2025-09-30 16:33:31,029 - Found 10 packages
-2025-09-30 16:33:31,030 - Car 10 waiting for packages to be ready...
-2025-09-30 16:33:31,030 - Car 11 waiting for packages to be ready...
-2025-09-30 16:33:31,033 - Failed to update package list
-2025-09-30 16:33:32,052 - Failed to update package list
-2025-09-30 16:33:33,063 - Failed to update package list
-2025-09-30 16:33:34,072 - Failed to update package list
-2025-09-30 16:33:35,602 - Car 10 starting - packages are ready!
-2025-09-30 16:33:35,848 - Car 11 starting - packages are ready!
-2025-09-30 16:33:38,138 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
-2025-09-30 16:33:40,210 - Car 10 lost ownership of package 1, resetting target.
-2025-09-30 16:33:41,206 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
-2025-09-30 16:33:41,232 - Car 10 lost ownership of package 1, resetting target.
-2025-09-30 16:33:41,957 - Car 11 lost ownership of package 3, resetting target.
-2025-09-30 16:33:42,262 - Car 10 lost ownership of package 1, resetting target.
-2025-09-30 16:33:43,296 - Car 10 lost ownership of package 1, resetting target.
-2025-09-30 16:33:44,333 - Car 10 lost ownership of package 1, resetting target.
-2025-09-30 16:33:45,366 - Car 10 lost ownership of package 1, resetting target.
-2025-09-30 16:33:46,520 - Car 11 lost ownership of package 3, resetting target.
-2025-09-30 16:33:48,046 - Car 11 lost ownership of package 3, resetting target.
-2025-09-30 16:33:49,566 - Car 11 lost ownership of package 3, resetting target.
-2025-09-30 16:33:51,097 - Car 11 lost ownership of package 3, resetting target.
-2025-09-30 16:34:01,878 - Car 10 lost ownership of package 8, resetting target.
-2025-09-30 16:34:02,901 - Car 10 lost ownership of package 8, resetting target.
-2025-09-30 16:34:03,924 - Car 10 lost ownership of package 8, resetting target.
-2025-09-30 16:34:04,959 - Car 10 lost ownership of package 8, resetting target.
-2025-09-30 16:34:05,985 - Car 10 lost ownership of package 8, resetting target.
-2025-09-30 16:34:07,034 - Car 10 lost ownership of package 8, resetting target.
-2025-09-30 16:34:14,707 - Car 11 lost ownership of package 5, resetting target.
-2025-09-30 16:34:16,226 - Car 11 lost ownership of package 5, resetting target.
-2025-09-30 16:34:17,750 - Car 11 lost ownership of package 5, resetting target.
-2025-09-30 16:34:19,281 - Car 11 lost ownership of package 5, resetting target.
-2025-09-30 16:34:22,985 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
-2025-09-30 16:34:25,028 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
-2025-09-30 16:34:35,788 - Car 10 lost ownership of package 9, resetting target.
-2025-09-30 16:34:36,801 - Car 10 lost ownership of package 9, resetting target.
-2025-09-30 16:34:37,836 - Car 10 lost ownership of package 9, resetting target.
-2025-09-30 16:34:38,874 - Car 10 lost ownership of package 9, resetting target.
-2025-09-30 16:34:39,913 - Car 10 lost ownership of package 9, resetting target.
-2025-09-30 16:34:40,951 - Car 10 lost ownership of package 9, resetting target.
-2025-09-30 16:34:43,716 - Car 11 lost ownership of package 7, resetting target.
-2025-09-30 16:34:45,251 - Car 11 lost ownership of package 7, resetting target.
-2025-09-30 16:34:46,785 - Car 11 lost ownership of package 7, resetting target.
-2025-09-30 16:34:48,300 - Car 11 lost ownership of package 7, resetting target.
-2025-09-30 16:35:12,666 - Car 11 lost ownership of package 10, resetting target.
-2025-09-30 16:35:15,732 - Car 11 lost ownership of package 10, resetting target.
-2025-09-30 16:35:17,258 - Car 11 lost ownership of package 10, resetting target.
-2025-09-30 16:35:18,356 - Car 10 lost ownership of package 2, resetting target.
-2025-09-30 16:35:18,804 - Car 11 lost ownership of package 10, resetting target.
-2025-09-30 16:35:19,386 - Car 10 lost ownership of package 2, resetting target.
-2025-09-30 16:35:20,408 - Car 10 lost ownership of package 2, resetting target.
-2025-09-30 16:35:21,416 - Car 10 lost ownership of package 2, resetting target.
-2025-09-30 16:35:22,455 - Car 10 lost ownership of package 2, resetting target.
-2025-09-30 16:35:23,480 - Car 10 lost ownership of package 2, resetting target.
-2025-09-30 16:35:38,505 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
-2025-09-30 16:35:38,833 - Stopping threads...
+2025-10-01 15:31:24,452 - Map loaded successfully!
+2025-10-01 15:31:24,452 - Graph has 47 nodes
+2025-10-01 15:31:24,452 - Graph has 82 edges
+2025-10-01 15:31:24,453 - Found 10 packages
+2025-10-01 15:31:24,453 - Graph with 47 nodes and 82 edges
+2025-10-01 15:31:24,453 - Car 10 waiting for packages to be ready...
+2025-10-01 15:31:24,454 - Car 11 waiting for packages to be ready...
+2025-10-01 15:31:24,457 - Failed to update package list
+2025-10-01 15:31:25,477 - Failed to update package list
+2025-10-01 15:31:27,025 - Car 10 starting - packages are ready!
+2025-10-01 15:31:27,036 - Car 10 started route to pick up package 1
+2025-10-01 15:31:27,048 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:31:27,277 - Car 11 starting - packages are ready!
+2025-10-01 15:31:27,284 - Car 11 started route to pick up package 3
+2025-10-01 15:31:27,295 - Car 11 lost ownership of package None, resetting target.
+2025-10-01 15:31:29,576 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:31:32,654 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:31:34,293 - Car 10 started route to pick up package 1
+2025-10-01 15:31:34,295 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:31:34,821 - Car 10 started route to pick up package 1
+2025-10-01 15:31:34,823 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:31:34,948 - Car 11 started route to pick up package 3
+2025-10-01 15:31:34,959 - Car 11 lost ownership of package None, resetting target.
+2025-10-01 15:31:35,344 - Car 10 started route to pick up package 1
+2025-10-01 15:31:35,347 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:31:35,721 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:31:35,871 - Car 10 started route to pick up package 1
+2025-10-01 15:31:35,873 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:31:36,393 - Car 10 started route to pick up package 1
+2025-10-01 15:31:36,396 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:31:36,914 - Car 10 started route to pick up package 1
+2025-10-01 15:31:36,932 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:31:37,449 - Car 10 started route to pick up package 1
+2025-10-01 15:31:37,452 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:31:37,970 - Car 10 started route to pick up package 1
+2025-10-01 15:31:37,982 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:31:38,522 - Car 10 started route to pick up package 1
+2025-10-01 15:31:38,534 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:31:38,804 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:31:39,051 - Car 10 started route to pick up package 1
+2025-10-01 15:31:39,061 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:31:39,576 - Car 10 started route to pick up package 1
+2025-10-01 15:31:39,579 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:31:40,091 - Car 10 started route to pick up package 1
+2025-10-01 15:31:40,099 - Error in car 10 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:31:40,331 - Car 11 started route to pick up package 3
+2025-10-01 15:31:40,346 - Car 11 lost ownership of package None, resetting target.
+2025-10-01 15:31:41,103 - Car 11 started route to pick up package 3
+2025-10-01 15:31:41,106 - Car 11 lost ownership of package None, resetting target.
+2025-10-01 15:31:41,875 - Car 11 started route to pick up package 3
+2025-10-01 15:31:41,877 - Car 11 lost ownership of package None, resetting target.
+2025-10-01 15:31:42,635 - Car 11 started route to pick up package 3
+2025-10-01 15:31:42,638 - Car 11 lost ownership of package None, resetting target.
+2025-10-01 15:31:43,397 - Car 11 started route to pick up package 3
+2025-10-01 15:31:43,400 - Car 11 lost ownership of package None, resetting target.
+2025-10-01 15:31:44,162 - Car 11 started route to pick up package 3
+2025-10-01 15:31:44,165 - Car 11 lost ownership of package None, resetting target.
+2025-10-01 15:31:44,932 - Car 11 started route to pick up package 3
+2025-10-01 15:31:44,936 - Car 11 lost ownership of package None, resetting target.
+2025-10-01 15:31:45,693 - Car 11 started route to pick up package 3
+2025-10-01 15:31:45,696 - Car 11 lost ownership of package None, resetting target.
+2025-10-01 15:31:46,270 - Error in car 10 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:31:46,460 - Car 11 started route to pick up package 3
+2025-10-01 15:31:46,466 - Error in car 11 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:31:46,781 - Error in car 10 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:31:47,301 - Error in car 10 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:31:47,813 - Error in car 10 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:31:48,327 - Error in car 10 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:31:48,760 - Error in car 11 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:31:48,837 - Error in car 10 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:31:49,344 - Error in car 10 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:31:49,865 - Error in car 10 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:31:50,381 - Error in car 10 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:31:50,906 - Error in car 10 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:31:51,928 - Car 10 started route to pick up package 8
+2025-10-01 15:31:51,929 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:31:52,974 - Car 10 started route to pick up package 8
+2025-10-01 15:31:55,630 - Error in car 11 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:31:56,389 - Error in car 11 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:31:57,153 - Error in car 11 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:31:57,929 - Error in car 11 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:31:58,693 - Error in car 11 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:31:59,452 - Error in car 11 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:32:00,172 - Car 10 started route to pick up package 10
+2025-10-01 15:32:00,175 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:32:00,211 - Error in car 11 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:32:01,743 - Car 11 started route to pick up package 5
+2025-10-01 15:32:01,744 - Car 11 lost ownership of package None, resetting target.
+2025-10-01 15:32:05,349 - Car 10 started route to pick up package 10
+2025-10-01 15:32:05,351 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:32:05,875 - Car 10 started route to pick up package 10
+2025-10-01 15:32:05,879 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:32:06,401 - Car 10 started route to pick up package 10
+2025-10-01 15:32:06,403 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:32:06,914 - Car 10 started route to pick up package 10
+2025-10-01 15:32:06,916 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:32:07,437 - Car 10 started route to pick up package 10
+2025-10-01 15:32:07,440 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:32:07,951 - Car 10 started route to pick up package 10
+2025-10-01 15:32:07,954 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:32:08,472 - Car 10 started route to pick up package 10
+2025-10-01 15:32:08,473 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:32:08,991 - Car 10 started route to pick up package 10
+2025-10-01 15:32:08,993 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:32:09,511 - Car 10 started route to pick up package 10
+2025-10-01 15:32:09,513 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:32:10,047 - Car 10 started route to pick up package 10
+2025-10-01 15:32:10,049 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:32:10,559 - Car 10 started route to pick up package 10
+2025-10-01 15:32:10,563 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:32:11,084 - Car 10 started route to pick up package 10
+2025-10-01 15:32:11,096 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:32:11,615 - Car 10 failed to update route to package 10
+2025-10-01 15:32:11,616 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:32:11,710 - Car 11 started route to pick up package 5
+2025-10-01 15:32:11,713 - Car 11 lost ownership of package None, resetting target.
+2025-10-01 15:32:12,157 - Car 10 started route to pick up package 10
+2025-10-01 15:32:12,162 - Car 10 lost ownership of package None, resetting target.
+2025-10-01 15:32:12,484 - Car 11 started route to pick up package 5
+2025-10-01 15:32:12,487 - Car 11 lost ownership of package None, resetting target.
+2025-10-01 15:32:12,675 - Car 10 started route to pick up package 10
+2025-10-01 15:32:12,693 - Error in car 10 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:32:13,254 - Car 11 started route to pick up package 5
+2025-10-01 15:32:13,263 - Car 11 lost ownership of package None, resetting target.
+2025-10-01 15:32:14,030 - Car 11 started route to pick up package 5
+2025-10-01 15:32:14,032 - Car 11 lost ownership of package None, resetting target.
+2025-10-01 15:32:14,810 - Car 11 started route to pick up package 5
+2025-10-01 15:32:14,812 - Car 11 lost ownership of package None, resetting target.
+2025-10-01 15:32:15,584 - Car 11 started route to pick up package 5
+2025-10-01 15:32:15,587 - Car 11 lost ownership of package None, resetting target.
+2025-10-01 15:32:16,371 - Car 11 started route to pick up package 5
+2025-10-01 15:32:16,375 - Car 11 lost ownership of package None, resetting target.
+2025-10-01 15:32:17,149 - Car 11 started route to pick up package 5
+2025-10-01 15:32:17,166 - Error in car 11 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:32:26,301 - Error in car 11 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:32:27,066 - Error in car 11 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:32:27,829 - Error in car 11 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:32:28,586 - Error in car 11 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:32:29,342 - Error in car 11 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:32:30,102 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:32:30,853 - Error in car 11 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:32:32,376 - Car 11 started route to pick up package 7
+2025-10-01 15:32:32,379 - Car 11 lost ownership of package None, resetting target.
+2025-10-01 15:32:40,944 - Error in car 10 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:32:41,449 - Error in car 10 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:32:41,965 - Error in car 10 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:32:42,493 - Error in car 10 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:32:43,009 - Error in car 10 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:32:43,514 - Error in car 10 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:32:44,026 - Error in car 10 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:32:44,546 - Error in car 10 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:32:45,059 - Error in car 10 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:32:45,580 - Error in car 10 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:32:46,108 - Error in car 10 thread: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all() with car DeliveryStatus.DELIVERING
+2025-10-01 15:32:49,928 - Car 11 started route to pick up package 7
+2025-10-01 15:32:49,932 - Car 11 lost ownership of package None, resetting target.
+2025-10-01 15:33:35,311 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:33:36,325 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:33:37,329 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:33:38,333 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:33:39,348 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:33:40,357 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:33:41,363 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:33:42,374 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:33:43,388 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:33:44,398 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:33:45,400 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:33:46,405 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:33:47,410 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:33:48,419 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:33:49,428 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:33:50,440 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:33:51,448 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:33:52,459 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:33:53,467 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:33:54,476 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:33:55,487 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:33:56,493 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:33:57,496 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:33:58,507 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:33:59,516 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:00,521 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:01,531 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:02,546 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:03,549 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:04,560 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:05,571 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:06,587 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:07,600 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:08,612 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:09,627 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:10,641 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:11,655 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:12,667 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:13,679 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:14,685 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:15,699 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:16,706 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:17,707 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:18,722 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:19,726 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:20,738 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:21,751 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:22,765 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:23,776 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:24,785 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:25,796 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:26,810 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:27,824 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:28,837 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:29,840 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:30,853 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:31,857 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:32,861 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:33,874 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:34,876 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:35,887 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:36,903 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:37,904 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:38,920 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:39,922 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:40,924 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:41,938 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:42,951 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:43,966 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:44,968 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:45,983 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:46,996 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:48,004 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:49,009 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:50,012 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:51,028 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:52,044 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:53,057 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:54,071 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:55,087 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:56,099 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:57,115 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:58,131 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:34:59,144 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:00,147 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:01,150 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:02,156 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:03,161 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:04,175 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:05,190 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:06,206 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:07,220 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:08,223 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:09,224 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:10,235 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:11,248 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:12,261 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:13,276 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:14,287 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:15,288 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:16,303 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:17,316 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:18,332 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:19,344 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:20,358 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:21,359 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:22,374 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:23,389 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:24,396 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:25,399 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:26,400 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:27,413 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:28,426 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:29,440 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:30,444 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:31,446 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:32,458 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:33,473 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:34,476 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:35,491 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:36,506 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:37,510 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:38,522 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:39,537 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:40,545 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:41,560 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:42,575 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:43,588 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:44,602 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:45,606 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:46,621 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:47,636 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:48,643 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:49,658 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:50,661 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:51,664 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:52,668 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:53,670 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:54,675 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:55,679 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:56,692 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:57,708 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:58,724 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:35:59,739 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:00,754 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:01,769 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:02,773 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:03,787 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:04,801 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:05,803 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:06,804 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:07,815 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:08,829 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:09,832 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:10,834 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:11,850 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:12,863 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:13,864 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:14,876 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:15,891 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:16,894 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:17,906 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:18,919 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:19,933 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:20,948 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:21,953 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:22,957 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:23,959 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:24,974 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:25,989 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:27,004 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:28,019 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:29,034 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:30,048 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:31,062 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:32,067 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:33,081 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:34,098 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:35,109 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:36,123 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:37,138 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:38,141 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:39,154 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:40,155 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:41,168 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:42,169 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:43,185 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:44,198 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:45,213 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:46,218 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:47,233 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:48,236 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:49,243 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:50,246 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:51,251 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:52,265 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:53,281 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:54,292 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:55,308 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:56,320 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:57,328 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:58,344 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:36:59,349 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:00,359 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:01,368 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:02,378 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:03,394 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:04,397 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:05,408 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:06,417 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:07,421 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:08,428 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:09,434 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:10,442 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:11,447 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:12,462 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:13,466 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:14,475 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:15,484 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:16,493 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:17,505 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:18,516 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:19,521 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:20,525 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:21,533 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:22,544 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:23,557 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:24,561 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:25,570 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:26,579 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:27,591 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:28,601 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:29,604 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:30,615 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:31,622 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:32,628 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:33,643 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:34,659 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:35,673 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:36,676 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:37,685 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:38,699 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:39,714 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:40,718 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:41,729 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:42,737 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:43,748 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:44,761 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:45,767 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:46,773 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:47,787 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:48,802 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:49,808 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:50,813 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:51,824 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:52,829 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:53,836 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:54,845 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:55,857 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:56,872 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:57,888 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:58,903 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:37:59,910 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:38:00,919 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:38:01,925 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:38:02,937 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:38:03,941 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:38:04,943 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:38:05,952 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:38:06,954 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:38:07,966 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:38:08,976 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:38:09,986 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:38:10,987 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:38:11,997 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:38:13,006 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:38:14,017 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:38:15,027 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:38:16,040 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:38:17,046 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:38:18,059 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:38:19,065 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:38:20,079 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:38:21,086 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:38:22,095 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:38:23,108 - Error in Update_Map_Packages thread: cannot unpack non-iterable NoneType object
+2025-10-01 15:38:23,232 - Stopping threads...

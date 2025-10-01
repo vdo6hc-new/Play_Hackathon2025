@@ -47,7 +47,15 @@ class Car:
         except Exception as e:
             print(f"Error getting state for Car {self.car_id}: {e}")
         return False
-                
+
+    def update_root(self, map_instance, destination):
+        """Update car route to destination"""
+        self.route = map_instance.get_root(self.position_mm, destination) if destination else []
+        success = map_instance.client.update_car_route(self.car_id, self.route, map_instance.userName, map_instance.password, timeout=5.0)
+        if success:
+            return True
+        return False
+
     def Im_Stuck(self, map_instance):
         if self.position_mm == self.old_position:
             self.stuck_cnt += 1
