@@ -29,6 +29,76 @@ Car_2_ID = 11 # Could be 11, or 13
 TASK_CYCLE = 1 # seconds
 packages_ready_event = threading.Event()  # Event to signal when packages are ready
 
+def gui_thread_function(car_1, car_2):
+    """Thread function to display GUI showing car routes"""
+    try:
+        root = tk.Tk()
+        root.title("Car Routes Monitor")
+        root.geometry("800x600")
+        
+        # Create text widgets for each car
+        tk.Label(root, text="Car 1 Route:", font=("Arial", 12, "bold")).pack(pady=5)
+        car1_text = tk.Text(root, height=10, width=80, wrap=tk.WORD)
+        car1_text.pack(pady=5, padx=10)
+        
+        tk.Label(root, text="Car 2 Route:", font=("Arial", 12, "bold")).pack(pady=5)
+        car2_text = tk.Text(root, height=10, width=80, wrap=tk.WORD)
+        car2_text.pack(pady=5, padx=10)
+        
+        # Status labels
+        car1_status_label = tk.Label(root, text="Car 1 Status: Unknown", font=("Arial", 10))
+        car1_status_label.pack(pady=2)
+        
+        car2_status_label = tk.Label(root, text="Car 2 Status: Unknown", font=("Arial", 10))
+        car2_status_label.pack(pady=2)
+        
+        def update_gui():
+            try:
+                # Update Car 1 route
+                PACKAGE_STATUS_1  = int(map_instance.map_packages[str(car_1.target_package_id)]['status'])
+                PACKAGE_STATUS_2  = int(map_instance.map_packages[str(car_2.target_package_id)]['status'])
+                car1_text.delete(1.0, tk.END)
+                if hasattr(car_1, 'route') and car_1.route:
+                    route_str = f"Route: {car_1.route}\n"
+                    route_str += f"Route Length: {len(car_1.route)}\n"
+                    route_str += f"Target Package: {car_1.target_package_id}\n"
+                    route_str += f"Package status {PACKAGE_STATUS_1}\n"
+                    route_str += f"Position: {car_1.position_mm}\n"
+                    car1_text.insert(1.0, route_str)
+                else:
+                    car1_text.insert(1.0, "No route available")
+                
+                # Update Car 2 route
+                car2_text.delete(1.0, tk.END)
+                if hasattr(car_2, 'route') and car_2.route:
+                    route_str = f"Route: {car_2.route}\n"
+                    route_str += f"Route Length: {len(car_2.route)}\n"
+                    route_str += f"Target Package: {car_2.target_package_id}\n"
+                    route_str += f"Package status {PACKAGE_STATUS_1}\n"
+                    route_str += f"Position: {car_2.position_mm}\n"
+                    car2_text.insert(1.0, route_str)
+                else:
+                    car2_text.insert(1.0, "No route available")
+                
+                # Update status labels
+                car1_status_label.config(text=f"Car 1 Status: {car_1.delivery_status.name if hasattr(car_1, 'delivery_status') else 'Unknown'}")
+                car2_status_label.config(text=f"Car 2 Status: {car_2.delivery_status.name if hasattr(car_2, 'delivery_status') else 'Unknown'}")
+                
+            except Exception as e:
+                logging.error(f"Error updating GUI: {e}")
+            
+            # Schedule next update
+            root.after(1000, update_gui)  # Update every 1 second
+        
+        # Start the update cycle
+        update_gui()
+        
+        # Run the GUI
+        root.mainloop()
+        
+    except Exception as e:
+        logging.error(f"Error in GUI thread: {e}")
+
 def Update_Map_Packages(map_instance, car_1, car_2):
     while True:
         try:
@@ -45,9 +115,9 @@ def Update_Map_Packages(map_instance, car_1, car_2):
                         if (hasattr(car_1.position_mm, '__len__') and len(car_1.position_mm) >= 2 and
                             hasattr(car_2.position_mm, '__len__') and len(car_2.position_mm) >= 2):
 
-                            sorted_for_car_1 = sorted((pkg for pkg in PACKAGE_LIST.values() if pkg['status'] == 0),
+                            sorted_for_car_1 = sorted((pkg for pkg in PACKAGE_LIST.values() if pkg['status'] == 0 and pkg['ownedBy'] == 0),
                                                     key=lambda pkg: math.dist(car_1.position_mm, pkg['position_start']))
-                            sorted_for_car_2 = sorted((pkg for pkg in PACKAGE_LIST.values() if pkg['status'] == 0),
+                            sorted_for_car_2 = sorted((pkg for pkg in PACKAGE_LIST.values() if pkg['status'] == 0 and pkg['ownedBy'] == 0),
                                                     key=lambda pkg: math.dist(car_2.position_mm, pkg['position_start']))
 
                             CAR_1_PACKAGE = [pkg['id'] for pkg in sorted_for_car_1]
@@ -82,8 +152,9 @@ def car_thread_function(map_instance, car, another_car):
                 PACKAGE_START   = map_instance.map_packages[str(car.target_package_id)]['position_start']
                 PACKAGE_END     = map_instance.map_packages[str(car.target_package_id)]['position_end']
                 PACKAGE_STATUS  = int(map_instance.map_packages[str(car.target_package_id)]['status'])
-                PACKAGE_OWNER   = int(map_instance.map_packages[str(car.target_package_id)]['ownedBy']) 
-                if car.update_status() and car.control_command == 'STOP':
+                PACKAGE_OWNER   = int(map_instance.map_packages[str(car.target_package_id)]['ownedBy'])
+                success = car.update_status()
+                if success and car.control_command == 'STOP':
                     # If car is idle or has delivered the package, get a new target package
                     if car.delivery_status == DeliveryStatus.IDLE:
                         # Update delivery status if route update was successful
@@ -162,6 +233,7 @@ if __name__ == "__main__":
     package_thread   = threading.Thread(target=Update_Map_Packages, args=(map_instance,car_1,car_2), daemon=True)
     car_1_thread     = threading.Thread(target=car_thread_function, args=(map_instance,car_1,car_2), daemon=True)
     car_2_thread     = threading.Thread(target=car_thread_function, args=(map_instance,car_2,car_1), daemon=True)
+    gui_thread       = threading.Thread(target=gui_thread_function, args=(car_1, car_2), daemon=True)
     
     # Start package thread first
     package_thread.start()
@@ -169,6 +241,7 @@ if __name__ == "__main__":
     # Start car threads (they will wait for packages to be ready)
     car_1_thread.start()
     car_2_thread.start()
+    gui_thread.start()
     
     # Keep main thread alive to let daemon threads run
     try:

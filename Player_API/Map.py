@@ -84,43 +84,6 @@ class Map:
                     start_pos = tuple(package_data['position_start'])
                     end_pos = tuple(package_data['position_end'])
                     
-                    # Find 2 closest existing nodes for start position
-                    start_distances = [(node, math.dist(start_pos, node)) for node in existing_nodes]
-                    start_distances.sort(key=lambda x: x[1])
-                    closest_start_nodes = [start_distances[0][0], start_distances[1][0]]
-                    
-                    # Find 2 closest existing nodes for end position
-                    end_distances = [(node, math.dist(end_pos, node)) for node in existing_nodes]
-                    end_distances.sort(key=lambda x: x[1])
-                    closest_end_nodes = [end_distances[0][0], end_distances[1][0]]
-                    
-                    # Create 2 new linestrings for start position
-                    for i, closest_node in enumerate(closest_start_nodes):
-                        new_linestring_start = {
-                            "start": list(start_pos),
-                            "end": list(closest_node),
-                            "package_id": package_data['id'],
-                            "connection_type": f"start_connection_{i+1}"
-                        }
-                        self.linestrings.append(new_linestring_start)
-                        
-                        # Add to graph
-                        dist = math.dist(start_pos, closest_node)
-                        self.map_graph.add_edge(start_pos, closest_node, weight=dist)
-                    
-                    # Create 2 new linestrings for end position
-                    for i, closest_node in enumerate(closest_end_nodes):
-                        new_linestring_end = {
-                            "start": list(end_pos),
-                            "end": list(closest_node),
-                            "package_id": package_data['id'],
-                            "connection_type": f"end_connection_{i+1}"
-                        }
-                        self.linestrings.append(new_linestring_end)
-                        
-                        # Add to graph
-                        dist = math.dist(end_pos, closest_node)
-                        self.map_graph.add_edge(end_pos, closest_node, weight=dist)
             
             return True
         else:
